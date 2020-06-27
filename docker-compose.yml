@@ -1,23 +1,31 @@
 version: "3.5"
 services:
-  app:
-    container_name: login
+  # web:
+  #   container_name: main_web
+  #   restart: always
+  #   networks:
+  #     - Starting-up
+  #   build: https://github.com/headStyleColorRed/startingUp-Web.git
+  #   ports:
+  #     - "80:80"
+  server:
+    container_name: login_server
     restart: always
     networks: 
-      - E-skeleton
-    build: .
+      - Starting-up
+    build: https://github.com/headStyleColorRed/startingUp-Login.git
     ports:
       - "8888:8888"
     links:
       - mongo
   mongo:
-    container_name: mongo
+    container_name: login_DB
     networks: 
-      - E-skeleton
+      - Starting-up
     image: mongo
     ports:
       - "27017:27017"
 
 networks:
-  E-skeleton:
-    name: E-skeleton
+  Starting-up:
+    name: Starting-up
