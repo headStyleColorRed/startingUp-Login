@@ -8,17 +8,15 @@ services:
   #   build: https://github.com/headStyleColorRed/startingUp-Web.git
   #   ports:
   #     - "80:80"
-  server:
-    container_name: login_server
+  login-server:
+    container_name: login-server
     restart: always
     networks: 
       - Starting-up
-    build: https://github.com/headStyleColorRed/startingUp-Login.git
+    build: .
     ports:
       - "8888:8888"
-    links:
-      - mongo
-  mongo:
+  login-mongo:
     container_name: login_DB
     networks: 
       - Starting-up

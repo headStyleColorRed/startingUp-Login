@@ -13,7 +13,7 @@ const User = require("./mongoDB/userModel.js")
 
 // Set environment
 if (environment == "production")
-	dbLink = "mongodb://mongo:27017/mongotest"
+	dbLink = "mongodb://login_DB:27017/mongotest"
 else 
 	dbLink = "mongodb://localhost:27017/mongotest"
 
@@ -40,7 +40,7 @@ mongoose.connect(dbLink, { useNewUrlParser: true }, (err) => {
 // ++++++++++++++++ HTTP METHODS +++++++++++++++++++ //
 
 app.get("/", (req, res) => {
-	res.send("E-Skeleton-login is ready to get some users! :D")
+	res.send("StartingUp-login is up and running! :D")
 })
 
 
